@@ -1,9 +1,11 @@
 $(document).ready(function(){
   $("form#numberform").submit(function(event){
     event.preventDefault();
-    var userInput = $("#inputnumber").val();
+    var userInput = $("#inputnumber").val()
     var masterArray= makeArray(userInput);
-    $("#output").text(checkForThrees(masterArray, userInput));
+    var theBetterArray= checkForThrees(masterArray, userInput);
+    console.log("whatsup");
+    $("#output").text(theBetterArray);
   });
 });
 
@@ -18,12 +20,28 @@ function makeArray(userInput){
 }
 function checkForThrees(masterArray, userInput){
   var masterArray = makeArray(userInput);
-  masterArray.forEach(function(number){
-    if (number === "3"){
-      number = beep;
+  for(var i= 0; i<= masterArray.length; i=i+1 ){
+    var chosenIndex = masterArray[i];
+    if(String(chosenIndex).includes("3")){
+      chosenIndex = "Dave, I can't believe it was you!"
+      }
+    else if(String(chosenIndex).includes("2")){
+      chosenIndex = "If you snooze it's better to choose one."
+      }
+    else if(String(chosenIndex).includes("1")){
+      chosenIndex = "Yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah!"
+      }
+    else{
+        chosenIndex=chosenIndex;
+      }
+      console.log(chosenIndex);
+      for(var superMasterArray=[]; superMasterArray.length<=i+1; superMasterArray.push(chosenIndex)){
+        var theBetterArray = superMasterArray;
+      }
+      console.log(theBetterArray);
     }
-})
-}
+    return theBetterArray;
+  }
 /*function beepBoop(userInput){
   var numbers= makeArray(userInput);
   numbers.forEach(function(number){
